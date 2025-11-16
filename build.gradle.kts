@@ -40,7 +40,7 @@ dependencies {
 	runtimeOnly("io.micrometer:micrometer-registry-prometheus")
 	runtimeOnly("io.opentelemetry.javaagent:opentelemetry-javaagent:$otelVersion")
 
-	// MacOS Apple Silicon (opzionale)
+	// MacOS Apple Silicon
 	// runtimeOnly("io.netty:netty-resolver-dns-native-macos:4.1.101.Final:osx-aarch_64")
 
 	// Test
@@ -59,4 +59,8 @@ dependencyManagement {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+tasks.named<Jar>("jar") {
+    enabled = false
 }
